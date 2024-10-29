@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeekYourSwarm - High-Level Design</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar_container">
+            <a class="navbar_link title" href="index.html">CS5744 - Project 1</a>
+            <a class="navbar_link" href="background.html">Background</a>
+            <a class="navbar_link" href="use_cases.html">Use Cases</a>
+            <a class="navbar_link" href="requirements.html">Requirements</a>
+            <a class="navbar_link active" href="high_level_design.html">High-Level Design</a>
+            <a class="navbar_link" href="modules.html">Modules</a>
+            <a class="navbar_link" href="design_rationale.html">Design Rationale</a>
+            <a class="navbar_link" href="conclusion.html">Conclusion</a>
+            <a class="navbar_link" href="index.html">Full Text</a>
+        </div>
+    </div>
+
+    <div id="content">
+        <br>
+        <h1>High-Level Design</h1>
+        <hr>
+        <center><img src="Picture1.png"></center>
+        <h3>User Interaction Module</h3>
+        <p>The first module handles the front-end experience for users interacting with the app. It manages user registration, login processes, and profile management, ensuring that user data is securely stored and managed. This module also enables users to search for clubs based on their current location, presenting only those within the designated proximity. It includes features for users to join clubs, communicate with other members within the same club, and customize their preferences. The module thus serves as the primary interface through which users interact with the app and find compatible clubs.</p>
+        <h3>Club Management Module</h3>
+        <p>The second module oversees all activities related to creating, managing, and maintaining clubs. When a user sets up a new club, this module records the geolocation of the club’s founder and enforces this location constraint, so that only users within a similar geographical range can view and join the club. It also provides functionalities for updating club information and managing club members. Furthermore, this module integrates with mapping services or APIs to validate and retrieve accurate geolocation data, ensuring that users and clubs are appropriately matched based on proximity.</p>
+        <h3>Backend and Data Storage Module</h3>
+        <p>The third module manages the underlying infrastructure for data persistence and communication between other modules. It stores user profiles, club details, and geolocation data securely within a database, ensuring that information is both accessible and protected. This module also implements APIs to facilitate the communication and interaction between the Club Management and User Interaction modules. Security measures such as data encryption, user authentication, and access controls are incorporated to protect user privacy and maintain the integrity of club data. This centralized module ensures that data is reliably stored and accessed by other parts of the system, creating a cohesive and secure application.</p>
+
+    </div>
+</body>

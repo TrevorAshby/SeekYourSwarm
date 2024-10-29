@@ -1,0 +1,221 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeekYourSwarm - Modules</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar_container">
+            <a class="navbar_link title" href="index.html">CS5744 - Project 1</a>
+            <a class="navbar_link" href="background.html">Background</a>
+            <a class="navbar_link" href="use_cases.html">Use Cases</a>
+            <a class="navbar_link" href="requirements.html">Requirements</a>
+            <a class="navbar_link" href="high_level_design.html">High-Level Design</a>
+            <a class="navbar_link active" href="modules.html">Modules</a>
+            <a class="navbar_link" href="design_rationale.html">Design Rationale</a>
+            <a class="navbar_link" href="conclusion.html">Conclusion</a>
+            <a class="navbar_link" href="index.html">Full Text</a>
+        </div>
+    </div>
+
+    <div id="content">
+        <br>
+        <h1>Modules</h1>
+        <hr>
+        <h3>1. User Interaction</h3>
+        <p>This module handles all the front-end behaviors that are required for the application, including: the user registration and account/profile management, security of users and user data, and the search for clubs based on their current location and interests. This module facilitates the core use case of the software, which is to allow users to find and join clubs, communicate with other members within the same club or between other clubs, and manage their social preferences and profiles. Essentially, this module acts as the interface through which users interact with the app and find compatible clubs.</p>
+        <p>This module contains the following two objects: </p>
+        <ol>
+            <li>User. This object encapsulates the user and relevant user data. It also includes operations for registration, login, and profile updates. </li>
+            <li>Club. This object encapsulates a club and relevant club data, including its location. It includes an operation for users to join a club. </li>
+        </ol>
+        <p>Both of which can call the following methods:</p>
+        <ol>
+            <li>Search. This object encapsulates the functionality of searching for clubs based on 	location and other criteria. </li>
+            <li>Message. This object encapsulates the information and operations associated with 	messaging between users.</li>
+        </ol>
+        <center><img src="Picture2.png"></center>
+        <p>The Search function is responsible for initiating searches for clubs based on criteria such as current user location and keywords. A list of matching clubs is then returned. User initiates search(), which calls the ClubBuffer and gives it the current user location and a keyword, which then returns a query result of local clubs sorted by relation to the keyword given. </p>
+        <p>The Message function is responsible for facilitating communication between users and clubs, allowing users to interact with club officers to ask them questions. Clubs may also host an internal chatroom to help coordinate club activities among their members. The message function does not facilitate communication between other non-club users, though it could in the future be modified to facilitate inter-club communication. The message function is internal to the wider software system, sending and receiving text messages or images in a chat format similar to other basic direct/personal method implementations. All relevant data related to the messages will be stored in a separate part of the database, namely the addressing, sender, receiver, timestamp, and message contents. This data will be encrypted and kept private for user privacy and could perhaps be deleted/overwritten after a period of time.</p>
+
+        <h3>2. Club Management</h3>
+        <p>The Club Management Module is designed to handle fundamental operations related to managing clubs within the application, specifically providing functionality to add, edit, delete, and retrieve club information. The module comprises four core functions: AddClub, EditClub, DeleteClub, and GetClub. Each of the first three functions (AddClub, EditClub, and DeleteClub) accepts a Club object, which is then directly passed to the DBStorage component. This storage layer is responsible for the permanent storage of club information and enables efficient data management without the need for intermediate processing. By bypassing the ClubBuffer, these functions prioritize immediate and direct updates to the club database, ensuring that additions, edits, and deletions are consistently stored and synchronized with minimal latency. </p>
+        <center><img src="Picture3.png"></center>
+        <p>In contrast, the GetClub function operates through a more complex flow, primarily for optimizing data retrieval based on geographic location. When invoked, GetClub first sends a GeoLocation query to the ClubBuffer rather than directly to DBStorage. The ClubBuffer then queries the DBStorage to fetch all clubs within the specified geolocation, holding them temporarily to reduce computation overhead during further filtering. This approach is particularly beneficial for cases involving numerous clubs within the same geographic area, as it minimizes redundant calls to DBStorage and enhances response efficiency. Finally, GetClub retrieves the relevant clubs from the ClubBuffer based on user-specific preferences or club selection criteria, enabling a more personalized and efficient club retrieval experience. </p>
+        <p>In this setup, the ClubBuffer serves as a cache-like intermediary, allowing frequently accessed club data to be temporarily stored for optimized, localized querying. This architecture enhances the performance of the GetClub function by reducing direct calls to the database for commonly accessed data, promoting system efficiency and a better user experience.</p>
+
+        <h3>3. User Management</h3>
+        <p>This module is responsible for handling the user management including adding, editing the user and putting them in the database along with deleting the user from the database. This module will also handle getting and checking if the user exists and if the password is correct when the user is attempting to log in. </p>
+        <p>The 4 main functions involved with user management:</p>
+        <ol>
+            <li>addUser – After the user creates an account, this function will add the user to the database. </li>
+            <li>editUser – After the user edits their account, this function will update the user’s information to the database.  </li>
+            <li>deleteUser – After the user deletes their account, this function will delete the user from the database. </li>
+            <li>getUser – After the user enter their login information and attempts to login, this function will check if the user exists and if the password is correct and will validate the user if this information is correct. </li>
+        </ol>
+        <p>Another part of the user management module is for users joining and leaving clubs. As users join clubs, the user management module will interact with both the user and club database to update their information. As users leave clubs, the user management module will interact with both the user and club database to update their information.</p>
+        <p>The two functions for joining clubs:</p>
+        <ol>
+            <li>joinClub() – When a user joins a club, this function will update the member section in the club database and update the clubs section in the user database. </li>
+            <li>leaveClub() – When a user leaves a club, this function will update the member section in the club database and update the clubs section in the user database. </li>
+        </ol>
+        <p>The final part of the user management module is for users who are club leaders or co-leaders. Users who are club leaders and co-leaders can manage the members of their club and kick any members who are inactive or break the rules. They can also edit the details of their club. Club leader can delete the club, but co-leader cannot delete the club. </p>
+        <p>The three functions for club management:</p>
+        <ol>
+            <li>kick() – When a leader or co-leader wants to kick a member of the club, this function will be called. This function will update the members and number_of_members sections in the club database and will update the clubs section in the user database accordingly. </li>
+            <li>editClubProfile() – When a leader or co-leader wants to edit the club profile, this function will be called. This function will update the club profile based on what the leader or co-leader wants to change and will update the club entry in the club database. </li>
+            <li>deleteClubProfile() – When a leader wants to delete the club, this function will be called. This function will delete the club from the club database, and it will also go through every member of the club and remove the deleted club from the user database. </li>
+        </ol>
+        <p>The user management module handles every related to the users in terms of account creation, deletion, and edits along with club membership whether it is joining or leaving clubs and editing clubs and kicking members as a club leader or co-leader. The module will also handle club leaders deleting the club. </p>
+
+        <h3>4. Database and Storage</h3>
+        <p>This module handles the configuration and creation of the database that interacts with the Club and User Management modules. Both databases will be relational databases made using SQL. The format of the databases will be shown in Figure 4. These databases will be accessed and used when any form of change to the database is called from the Club Management and User Management modules. We will set up, operate, and manage these databases using Amazon RDS for PostgreSQL. These messages will be encrypted in transit and in rest, making sure that the data will always be secure.  </p>
+        <center><img src="Picture4.png"></center>
+        <p>For the storage of all messages between users, it will all be stored on Amazon S3 to contain all of the messages. The messages will be organized using Amazon DynamoDB, a NoSQL database which will be shown in Figure 5. These databases will constantly update as users send texts to each other, and will be encrypted in transit and in rest, making sure that the messages are always encrypted. </p>
+        <center><img src="Picture5.png"></center>
+        <p>There will be collaboration between the PostgreSQL and NoSQL databases where the NoSQL will get the userID from the PostgreSQL tables to get the proper user for each interaction. This database module will consolidate interactions between both, and edit, add, and delete information from the NoSQL table based on the information it gets from the PostgreSQL tables.</p>
+
+        <br>
+        <h1>Tracability Matrix</h1>
+        <hr>
+        <table>
+            <tr class="dark_row">
+                <th>Functional Requirements</th>
+                <th>Requirement ID</th>
+                <th>Module ID</th>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>FR-1</td>
+                <td>4</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>FR-2</td>
+                <td>4</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>FR-3</td>
+                <td>2</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>FR-4</td>
+                <td>3</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>FR-5</td>
+                <td>2</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>FR-6</td>
+                <td>1</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>FR-7</td>
+                <td>1</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>FR-8</td>
+                <td>3</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>FR-9</td>
+                <td>3, 4</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>FR-10</td>
+                <td>3</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>FR-11</td>
+                <td>3</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>FR-12</td>
+                <td>3</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>FR-13</td>
+                <td>3</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>FR-14</td>
+                <td>4</td>
+            </tr>
+            <tr class="light_row">
+                <th>Non-Functional Requirements</th>
+                <th>Requirement ID</th>
+                <th>Module ID</th>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>NFR-1</td>
+                <td>4</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>NFR-2</td>
+                <td>4</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>NFR-3</td>
+                <td>4</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>NFR-4</td>
+                <td>4</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>NFR-5</td>
+                <td>4</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>NFR-6</td>
+                <td>4</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>NFR-7</td>
+                <td>1, 2</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>NFR-8</td>
+                <td>4</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>NFR-9</td>
+                <td>2</td>
+            </tr>
+            <tr class="light_row">
+                <td></td>
+                <td>NFR-10</td>
+                <td>1, 2</td>
+            </tr>
+            <tr class="dark_row">
+                <td></td>
+                <td>NFR-11</td>
+                <td>4</td>
+            </tr>
+        </table>
+    </div>
+</body>
