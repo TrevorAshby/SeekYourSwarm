@@ -2,33 +2,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeekYourSwarm</title>
+    <title>SeekYourSwarm - Background</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div class="navbar">
         <div class="navbar_container">
             <a class="navbar_link title" href="index.html">CS5744 - Project 1</a>
-            <a class="navbar_link" href="background.html">Background</a>
+            <a class="navbar_link active" href="index.html">Background</a>
             <a class="navbar_link" href="use_cases.html">Use Cases</a>
             <a class="navbar_link" href="requirements.html">Requirements</a>
             <a class="navbar_link" href="high_level_design.html">High-Level Design</a>
             <a class="navbar_link" href="modules.html">Modules</a>
             <a class="navbar_link" href="design_rationale.html">Design Rationale</a>
             <a class="navbar_link" href="conclusion.html">Conclusion</a>
-            <a class="navbar_link active" href="index.html">Full Text</a>
-            <!-- <div id="names">
-                <label>Benjamin Brassard; Branden Yi;</label>
-                <br>
-                <label>Trevor Ashby; Parker Dugan</label>
-            </div> -->
+            <a class="navbar_link" href="full_text.html">Full Text</a>
         </div>
     </div>
     <div id="content">
-        <h1>Seek Your Swarm</h1>
-        <p>Benjamin Brassard; Branden Yi; Trevor Ashby; Parker Dugan</p>
 
-        <br>
+    <br>
         <h1>Background</h1>
         <hr>
         <p>The name of our software system will be Seek Your Swarm. 
@@ -56,289 +49,10 @@
             towards those who seek to build local connections in their area.</p>
         </p>
 
-        <br>
-        <h1>Use Cases</h1>
-        <hr>
-        <p>The primary intended user of the Club Finder app that is being designed for this project is for people who have lost access and connectivity to their past clubs and are looking for new clubs near them. The secondary intended user is a person who is interested in getting into an extracurricular activity and wants to see what type of clubs there are near them.</p>
-        <p>John is a twenty-three year old recent college graduate who accepted a job away from everyone he knew. While in college, he was on a football team, and he was in the book club. John wants to join a new football team and join a new book club, but he has no idea where to look for clubs and teams that he can join, and he does not know anyone around him that can help either. John wants a Club Finder app that can give him the ability to find any football team and book club near him. He would like to see where and when they meet to see if it fits his schedule. Finally, he would also like to talk to the team and club before fully deciding whether to join them or not. </p>
-        <p>Janice is a thirty-five year old office worker who wants to find a new hobby or extracurricular activity. She wants to look around and see which clubs and teams are available around her but doesn’t know where to look. Janice wants a Club Finder app that can allow her to see all of the available clubs and teams near her area in order for her to make a final decision about where she wants to go. She would like to be able to see a list of clubs that are located around her in a specific radius. She would also like to be able to talk to the leaders of each club to get more information about the team and club, and she would like to see when they meet to see if they meet her schedule.</p>
-
-        <br>
-        <h1>Requirements</h1>
-        <hr>
-        <h3>Functional Requirements</h3>
-        <ul>
-            <li>FR-1. The system must have a database of clubs.</li>
-            <li>FR-2. The system must have a database of users.</li>
-            <li>FR-3. The system must provide a search function for users to search for clubs.</li>
-            <li>FR-4. The system must allow users to create an account for themselves.</li>
-            <li>FR-5. The system must effectively utilize geolocation to connect users to nearby clubs.</li>
-            <li>FR-6. The system must allow for interaction between users, and internal management of club members/officers.</li>
-            <li>FR-7. The system must allow users to create clubs. </li>
-            <li>FR-8. The system must allow users to edit their account.</li>
-            <li>FR-9. The system must allow users to delete their account.</li>
-            <li>FR-10. The system must allow club leaders to edit their club.</li>
-            <li>FR-11. The system must allow club leaders to delete their club. </li>
-            <li>FR-12. The system must allow club leaders to manage the members in their club.</li>
-            <li>FR-13. The system must allow users to join clubs. </li>
-            <li>FR-14. The system must store messages sent by users. </li>
-        </ul>
-        <h3>Non-Functional Requirements</h3>
-        <ul>
-            <li>NFR-1. The system must handle user data securely and efficiently.</li>
-            <li>NFR-2. The system must handle club data and location securely and efficiently.</li>
-            <li>NFR-3. The system must encrypt all user data. </li>
-            <li>NFR-4. The system must back up all user data with copies.</li>
-            <li>NFR-5. The system must encrypt all club data.</li>
-            <li>NFR-6. The system must back up all club data with copies.</li>
-            <li>NFR-7. The system must be intuitive and user-friendly.</li>
-            <li>NFR-8. The system must be able to persist data to database in less than 1 second.</li>
-            <li>NFR-9. The system shall be able to find and display all clubs in a location in less than 5 seconds. </li>
-            <li>NFR-10. The system shall be able to display the club page in less than 5 seconds. </li>
-            <li>NFR-11. The system must store messages between users securely and efficiently.</li>
-        </ul>
-
-        <br>
-        <h1>High-Level Design</h1>
-        <hr>
-        <center><img src="Picture1.png"></center>
-        <h3>User Interaction Module</h3>
-        <p>The first module handles the front-end experience for users interacting with the app. It manages user registration, login processes, and profile management, ensuring that user data is securely stored and managed. This module also enables users to search for clubs based on their current location, presenting only those within the designated proximity. It includes features for users to join clubs, communicate with other members within the same club, and customize their preferences. The module thus serves as the primary interface through which users interact with the app and find compatible clubs.</p>
-        <h3>Club Management Module</h3>
-        <p>The second module oversees all activities related to creating, managing, and maintaining clubs. When a user sets up a new club, this module records the geolocation of the club’s founder and enforces this location constraint, so that only users within a similar geographical range can view and join the club. It also provides functionalities for updating club information and managing club members. Furthermore, this module integrates with mapping services or APIs to validate and retrieve accurate geolocation data, ensuring that users and clubs are appropriately matched based on proximity.</p>
-        <h3>Backend and Data Storage Module</h3>
-        <p>The third module manages the underlying infrastructure for data persistence and communication between other modules. It stores user profiles, club details, and geolocation data securely within a database, ensuring that information is both accessible and protected. This module also implements APIs to facilitate the communication and interaction between the Club Management and User Interaction modules. Security measures such as data encryption, user authentication, and access controls are incorporated to protect user privacy and maintain the integrity of club data. This centralized module ensures that data is reliably stored and accessed by other parts of the system, creating a cohesive and secure application.</p>
-
-        <br>
-        <h1>Modules</h1>
-        <hr>
-        <h3>1. User Interaction</h3>
-        <p>This module handles all the front-end behaviors that are required for the application, including: the user registration and account/profile management, security of users and user data, and the search for clubs based on their current location and interests. This module facilitates the core use case of the software, which is to allow users to find and join clubs, communicate with other members within the same club or between other clubs, and manage their social preferences and profiles. Essentially, this module acts as the interface through which users interact with the app and find compatible clubs.</p>
-        <p>This module contains the following two objects: </p>
-        <ol>
-            <li>User. This object encapsulates the user and relevant user data. It also includes operations for registration, login, and profile updates. </li>
-            <li>Club. This object encapsulates a club and relevant club data, including its location. It includes an operation for users to join a club. </li>
-        </ol>
-        <p>Both of which can call the following methods:</p>
-        <ol>
-            <li>Search. This object encapsulates the functionality of searching for clubs based on 	location and other criteria. </li>
-            <li>Message. This object encapsulates the information and operations associated with 	messaging between users.</li>
-        </ol>
-        <center><img src="Picture2.png"></center>
-        <p>The Search function is responsible for initiating searches for clubs based on criteria such as current user location and keywords. A list of matching clubs is then returned. User initiates search(), which calls the ClubBuffer and gives it the current user location and a keyword, which then returns a query result of local clubs sorted by relation to the keyword given. </p>
-        <p>The Message function is responsible for facilitating communication between users and clubs, allowing users to interact with club officers to ask them questions. Clubs may also host an internal chatroom to help coordinate club activities among their members. The message function does not facilitate communication between other non-club users, though it could in the future be modified to facilitate inter-club communication. The message function is internal to the wider software system, sending and receiving text messages or images in a chat format similar to other basic direct/personal method implementations. All relevant data related to the messages will be stored in a separate part of the database, namely the addressing, sender, receiver, timestamp, and message contents. This data will be encrypted and kept private for user privacy and could perhaps be deleted/overwritten after a period of time.</p>
-
-        <h3>2. Club Management</h3>
-        <p>The Club Management Module is designed to handle fundamental operations related to managing clubs within the application, specifically providing functionality to add, edit, delete, and retrieve club information. The module comprises four core functions: AddClub, EditClub, DeleteClub, and GetClub. Each of the first three functions (AddClub, EditClub, and DeleteClub) accepts a Club object, which is then directly passed to the DBStorage component. This storage layer is responsible for the permanent storage of club information and enables efficient data management without the need for intermediate processing. By bypassing the ClubBuffer, these functions prioritize immediate and direct updates to the club database, ensuring that additions, edits, and deletions are consistently stored and synchronized with minimal latency. </p>
-        <center><img src="Picture3.png"></center>
-        <p>In contrast, the GetClub function operates through a more complex flow, primarily for optimizing data retrieval based on geographic location. When invoked, GetClub first sends a GeoLocation query to the ClubBuffer rather than directly to DBStorage. The ClubBuffer then queries the DBStorage to fetch all clubs within the specified geolocation, holding them temporarily to reduce computation overhead during further filtering. This approach is particularly beneficial for cases involving numerous clubs within the same geographic area, as it minimizes redundant calls to DBStorage and enhances response efficiency. Finally, GetClub retrieves the relevant clubs from the ClubBuffer based on user-specific preferences or club selection criteria, enabling a more personalized and efficient club retrieval experience. </p>
-        <p>In this setup, the ClubBuffer serves as a cache-like intermediary, allowing frequently accessed club data to be temporarily stored for optimized, localized querying. This architecture enhances the performance of the GetClub function by reducing direct calls to the database for commonly accessed data, promoting system efficiency and a better user experience.</p>
-
-        <h3>3. User Management</h3>
-        <p>This module is responsible for handling the user management including adding, editing the user and putting them in the database along with deleting the user from the database. This module will also handle getting and checking if the user exists and if the password is correct when the user is attempting to log in. </p>
-        <p>The 4 main functions involved with user management:</p>
-        <ol>
-            <li>addUser – After the user creates an account, this function will add the user to the database. </li>
-            <li>editUser – After the user edits their account, this function will update the user’s information to the database.  </li>
-            <li>deleteUser – After the user deletes their account, this function will delete the user from the database. </li>
-            <li>getUser – After the user enter their login information and attempts to login, this function will check if the user exists and if the password is correct and will validate the user if this information is correct. </li>
-        </ol>
-        <p>Another part of the user management module is for users joining and leaving clubs. As users join clubs, the user management module will interact with both the user and club database to update their information. As users leave clubs, the user management module will interact with both the user and club database to update their information.</p>
-        <p>The two functions for joining clubs:</p>
-        <ol>
-            <li>joinClub() – When a user joins a club, this function will update the member section in the club database and update the clubs section in the user database. </li>
-            <li>leaveClub() – When a user leaves a club, this function will update the member section in the club database and update the clubs section in the user database. </li>
-        </ol>
-        <p>The final part of the user management module is for users who are club leaders or co-leaders. Users who are club leaders and co-leaders can manage the members of their club and kick any members who are inactive or break the rules. They can also edit the details of their club. Club leader can delete the club, but co-leader cannot delete the club. </p>
-        <p>The three functions for club management:</p>
-        <ol>
-            <li>kick() – When a leader or co-leader wants to kick a member of the club, this function will be called. This function will update the members and number_of_members sections in the club database and will update the clubs section in the user database accordingly. </li>
-            <li>editClubProfile() – When a leader or co-leader wants to edit the club profile, this function will be called. This function will update the club profile based on what the leader or co-leader wants to change and will update the club entry in the club database. </li>
-            <li>deleteClubProfile() – When a leader wants to delete the club, this function will be called. This function will delete the club from the club database, and it will also go through every member of the club and remove the deleted club from the user database. </li>
-        </ol>
-        <p>The user management module handles every related to the users in terms of account creation, deletion, and edits along with club membership whether it is joining or leaving clubs and editing clubs and kicking members as a club leader or co-leader. The module will also handle club leaders deleting the club. </p>
-
-        <h3>4. Database and Storage</h3>
-        <p>This module handles the configuration and creation of the database that interacts with the Club and User Management modules. Both databases will be relational databases made using SQL. The format of the databases will be shown in Figure 4. These databases will be accessed and used when any form of change to the database is called from the Club Management and User Management modules. We will set up, operate, and manage these databases using Amazon RDS for PostgreSQL. These messages will be encrypted in transit and in rest, making sure that the data will always be secure.  </p>
-        <center><img src="Picture4.png"></center>
-        <p>For the storage of all messages between users, it will all be stored on Amazon S3 to contain all of the messages. The messages will be organized using Amazon DynamoDB, a NoSQL database which will be shown in Figure 5. These databases will constantly update as users send texts to each other, and will be encrypted in transit and in rest, making sure that the messages are always encrypted. </p>
-        <center><img src="Picture5.png"></center>
-        <p>There will be collaboration between the PostgreSQL and NoSQL databases where the NoSQL will get the userID from the PostgreSQL tables to get the proper user for each interaction. This database module will consolidate interactions between both, and edit, add, and delete information from the NoSQL table based on the information it gets from the PostgreSQL tables.</p>
-
-        <br>
-        <h1>Tracability Matrix</h1>
-        <hr>
-        <table>
-            <tr class="dark_row">
-                <th>Functional Requirements</th>
-                <th>Requirement ID</th>
-                <th>Module ID</th>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>FR-1</td>
-                <td>4</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>FR-2</td>
-                <td>4</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>FR-3</td>
-                <td>2</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>FR-4</td>
-                <td>3</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>FR-5</td>
-                <td>2</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>FR-6</td>
-                <td>1</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>FR-7</td>
-                <td>1</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>FR-8</td>
-                <td>3</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>FR-9</td>
-                <td>3, 4</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>FR-10</td>
-                <td>3</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>FR-11</td>
-                <td>3</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>FR-12</td>
-                <td>3</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>FR-13</td>
-                <td>3</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>FR-14</td>
-                <td>4</td>
-            </tr>
-            <tr class="light_row">
-                <th>Non-Functional Requirements</th>
-                <th>Requirement ID</th>
-                <th>Module ID</th>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>NFR-1</td>
-                <td>4</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>NFR-2</td>
-                <td>4</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>NFR-3</td>
-                <td>4</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>NFR-4</td>
-                <td>4</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>NFR-5</td>
-                <td>4</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>NFR-6</td>
-                <td>4</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>NFR-7</td>
-                <td>1, 2</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>NFR-8</td>
-                <td>4</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>NFR-9</td>
-                <td>2</td>
-            </tr>
-            <tr class="light_row">
-                <td></td>
-                <td>NFR-10</td>
-                <td>1, 2</td>
-            </tr>
-            <tr class="dark_row">
-                <td></td>
-                <td>NFR-11</td>
-                <td>4</td>
-            </tr>
-        </table>
-
-        <br>
-        <h1>Design Rationale</h1>
-        <hr>
-        <p>Our design rationale is based on a social media format, where club/user data is created and stored on one website. The website (which is the host of our software system) takes the club and user objects and matches them with each other via geolocation algorithms or simple name searches. There is a built-in communication system that facilitates interaction between the club/users and club to club. Finally, the site is linked to a database that stores all relevant information. All these basic functions comprise the necessities of a social media site.</p>
-        
-        <h3>Function 1: Creating a Club</h3>
-        <p>The first step in managing extracurricular clubs within the system is to facilitate the creation and administration of clubs (FR-7, FR-10) and user accounts (FR-4, FR-8). For clubs, this involves setting key details such as the club's name, description, meeting schedule, location, and any specific membership requirements or preferences. In a “manual” management scenario, where administrators and users have full control, the creation of clubs and users is straightforward. Here, the club administrator manually inputs each field, and the software simply stores these values, providing basic validation to ensure correct data formats. For user accounts, the manual process allows users or administrators to define their own information, such as usernames, contact information, and profile preferences, which can then be used to personalize the user's experience within the platform.</p>
-        <p>In a more “automated” or “suggestive” use case, additional complexity is introduced that could influence the system’s architecture. In this scenario, the program leverages various algorithms and automated workflows to suggest optimal club attributes or user profiles based on available data. For instance, the system could analyze other club profiles and user interactions to recommend popular meeting times or relevant tags based on user preferences and club characteristics. (NFR-7) User accounts in this mode would also require more extensive system-driven validation and potential onboarding suggestions, such as recommending clubs that align with users' interests. The system may also need to integrate with external data sources, such as academic schedules or geographic information, to optimize club schedules or recommend nearby clubs based on user location data. The system's architecture must also be capable of handling simultaneous requests to create or update clubs and accounts in real time, allowing users and administrators a seamless experience. (NFR-8)</p>
-        <p>The need for concurrent and efficient data handling places certain architectural constraints on the system. Among potential styles, the Process Control solution style and the Shared Memory design emerge as suitable options. In the “automated” mode, the Process Control style enables continuous data processing to adjust recommendations based on changing user preferences or newly created clubs, supporting a dynamic and adaptive environment. The Shared Memory design could provide efficient access to static club information, though it may introduce unnecessary complexity if the data is frequently changing and does not need to be retained for all users simultaneously. An Event-Driven design, on the other hand, would be less suitable due to its lack of guaranteed timing, which is critical for synchronized user updates. Given these considerations, a Shared Memory design is best suited to this management function, enabling responsive and adaptive data flows to optimize both club creation and user experience. (NFR-8)</p>
-
-        <h3>Function 2: The Search Function and Geolocation</h3>
-        <p>The second step in our system is the search and club-matching algorithm, which is definitely the most critical function of the entire software system. It serves as the primary selling point for our design and is the feature that sets it above other systems like GobblerConnect or Facebook. When a user enters a search, the system takes the user's location and sends the query to the ClubBuffer (described in model 2), which then collects all relevant clubs from the database (described in detail in function 4) that have similar locations to the user (FR-5, NFR-9). The resulting list is then sorted by relevance to the search keywords, after which the ClubBuffer returns the list to then be displayed for the user by the GUI (FR-3, NFR-7). The idea being that the user of our system has a more relevant and realistic idea of the social/communal activities in their local area. </p>
-        <p>The only use case for this function is the search function itself and its efficient handling of potentially thousands of queries at once. Its ability to do this is dependent on good system design that emphasizes performance and accuracy, and specifically the ClubBuffer must be able to efficiently retrieve, organize, and collect club data to facilitate adequate data management within our system (NFR-8). As mentioned in function one, the useful concept of a Shared Memory design model will greatly assist the ClubBuffer in its queries to the database, as well as provide it with manageable datasets that can be quickly and easily sorted and displayed to the end-user. While this will likely result in some otherwise unnecessary system complexity, the benefits in terms of efficiency far exceed the potential costs involved. All of this results in an efficient and user-friendly search function that can retrieve data efficiently, quickly sort it by relevance, then display it in an intuitive manner.</p>
-
-        <h3>Function 3: Communication Amongst Members</h3>
-        <p>Seek Your Swarm allows users to freely interact with other users and club members, allowing for collaboration, information sharing, and socialization. Users can direct message club leaders and ask about club details before joining. When a user joins a club, they will be added to a group chat with all the other members of that club (FR-6). Club group chats can be used to distribute relevant information about the club. Group chats support image sharing like many well-known chat applications. Club leaders have moderator privileges over the group chat, they can remove inappropriate content and users if needed. </p>
-        <p>Because of the sensitive nature of private communication, all messages are end-to-end encrypted. This promotes the data privacy and confidentiality of users. Each user session has a unique encryption key, making messaging more secure (NFR-1). Every message that is sent is encrypted during transit and in storage (NFR-3). For quick and reliable access, messages are stored in an Amazon DynamoDB database (FR-14). </p>
-        <p>When a user sends a message, it initiates an event call to the User Interaction module, triggering the sendMessage() function that handles message formatting, encryption, and transmission. sendMessage() formats the message and adds relevant metadata, such as sender and recipient IDs and the timestamp. After the message is formatted it is passed through a symmetric encryption algorithm to ensure that it is unreadable without a key. A digital signature is appended to the message for sender authentication. </p>
-        <p>After encryption, the message is transmitted. Client-server architecture allows for the use of the WebSocket protocol. sendMessage() uses this connection to push the encrypted message to the backend server with little delay. The message metadata is logged in the backend database (DynamoDB) and its contents are stored in Amazon S3 (NFR-8). This implementation provides messages that are secure and quick to access (NFR-11). After the backend receives the message and is finished processing it, an acknowledgement is sent back to the sender, so they are aware that it was delivered.  When the message is opened by the recipient it is decrypted using the recipient's decryption key. </p>
-
-        <h3>Function 4: User Roles and Management</h3>
-        <p>After the user is logged into their account, they will have the option to edit or delete their profile depending on the situation (FR-8, 9). Only after a user is logged in can they access any of the functions of the rest of the application. This is so that we can allocate resources toward people that we know need to use the application rather than people who are messing around on it. They can also have the option to create and join clubs (FR-7, 13). We decided that only users can join clubs to keep track of everyone who is in the club. To make the process of creating and joining clubs along with editing and deleting accounts efficient and reliable, we have a central user management console that will interact with the database to have an organized way of accessing the database for each user. When creating a club, the user who creates the club is automatically the club leader. We did this since logically, the person who makes the club is going to be the leader of the club. We also did this so that it is easy to store on the database since we can assign the user as the club leader automatically. We also made it so that the club leader can edit and delete the club (FR-10, 11). The club leader can also appoint co-leaders to help manage the club. This feature was made in mind for bigger clubs. These co-leaders can also edit the club, but they cannot delete the club. We did this because the duty of deleting the club should only fall on the top person in the club, which is the club leader. It feels untrustworthy to give the co-leader the ability to delete clubs. Something the club leader and co-leaders can also do is kick members (FR-12). We made this feature in the case of any members being inappropriate and need to be kicked out of the club. </p>
-        <p>This module was made to only focus on user actions since that is a big part of the application. By setting it aside, it helps with not only being able to easily test it, but it also helps with isolating it for further development. Within the module there are different sections for user actions. We divided it in a way where it makes the most sense where we put all actions involving interacting with clubs in one section, all actions involving the user account in another, and finally all actions involving user club creation and further management in one section. This also helps to test and isolate for development. </p>
-
-        <h3>Function 5: Database and Storage</h3>
-        <p>All user and club data will be stored on an SQL database (FR-1, FR-2). When the User and Club Management modules call any change to the database, the functions will manually access the database and change or get the information necessary from the database. For this case, we decided to use Amazon RDS for PostgreSQL to efficiently set up and operate the databases and the interactions between the modules and the databases. Amazon RDS allows for easy set up and management and allows for precise fine-tuning of the database. PostgreSQL is also used since it is ACID compliant and is fast in complex queries and one of the most efficient RDBMS allowing. This makes creating, editing, and deleting user and club profiles in PostgreSQL very fast (FR-4,7,8,9,10,11,12 NFR-1,2,8). In addition, we also decided to use Amazon RDS Multi-AZ to create multiple copies of the database and make the database highly available (NFR 4, 6). All the messages made by users will be stored on Amazon S3 and will be organized using Amazon DynamoDB (FR-14).  We decided on Amazon S3 due to its incredible scalability, durability, and security (NFR-11). We also decided on Amazon DynamoDB due to its incredible speed and performance (NFR-11). The time it takes for the system to persist data to the database will take less than one second (NFR-8). Using Amazon services for every part of the configuration makes the setup very consistent and easy to access, and it also helps with the scalability of the database system as more and more users join the application. This scalability is especially important in the situation of having more users and clubs than expected, using Amazon S3 and Amazon RDS allows us to scale up easier. It saves us time and money from trying to allocate our own space, and instead making use of Amazon’s servers.  </p>
-
-        <br>
-        <h1>Conclusion</h1>
-        <hr>
-        <p>Our design for Seek Your Swarm creates a solution for those who are looking to find social outlets in their region. The use of modular architecture structures this application into clearly defined components that each address functional and non-functional requirements. Amazon RDS for PostgreSQL and Amazon S3 ensure that user and club data is stored securely and remains easily scalable as the userbase expands. Security, usability and performance were key considerations that influenced our design, creating a reliable and user-friendly application that promotes meaningful social interactions. </p>
-        <p>Each module plays an important role in making this platform effective and engaging. The User Interaction Module enhances user experience by allowing quick and secure communication among members. This fosters a sense of community and encourages participation in clubs. Seek Your Swarm’s modular approach allows it to be easily adapted and enhanced in the future. Communication features could be expanded upon, and data processing capabilities could be upgraded to support growing demand. This flexibility extends to the user interface and backend, which could both be modified without significant changes to the other modules. </p>
-        <p>Seek Your Swarm is a platform that is robust, scalable and secure. It meets the needs of those who are searching for community beyond academic or professional settings. Our high-level design is informed by consideration of user needs and technical requirements and allows the system to deliver both performance and usability, making it a very valuable tool for fostering social groups. </p>
+        <div id="control">
+            <!-- <a class="nav_button" href="">Prev</a> -->
+            <a></a>
+            <a class="nav_button" href="use_cases.html">Next</a>
+        </div>
     </div>
 </body>
-</html>

@@ -9,14 +9,14 @@
     <div class="navbar">
         <div class="navbar_container">
             <a class="navbar_link title" href="index.html">CS5744 - Project 1</a>
-            <a class="navbar_link" href="background.html">Background</a>
+            <a class="navbar_link" href="index.html">Background</a>
             <a class="navbar_link" href="use_cases.html">Use Cases</a>
             <a class="navbar_link" href="requirements.html">Requirements</a>
             <a class="navbar_link active" href="high_level_design.html">High-Level Design</a>
             <a class="navbar_link" href="modules.html">Modules</a>
             <a class="navbar_link" href="design_rationale.html">Design Rationale</a>
             <a class="navbar_link" href="conclusion.html">Conclusion</a>
-            <a class="navbar_link" href="index.html">Full Text</a>
+            <a class="navbar_link" href="full_text.html">Full Text</a>
         </div>
     </div>
 
@@ -24,7 +24,10 @@
         <br>
         <h1>High-Level Design</h1>
         <hr>
-        <center><img src="Picture1.png"></center>
+        <center>
+            <img src="Picture1.png">
+            <p>Figure 1 - Module relations</p>
+        </center>
         <h3>User Interaction Module</h3>
         <p>The first module handles the front-end experience for users interacting with the app. It manages user registration, login processes, and profile management, ensuring that user data is securely stored and managed. This module also enables users to search for clubs based on their current location, presenting only those within the designated proximity. It includes features for users to join clubs, communicate with other members within the same club, and customize their preferences. The module thus serves as the primary interface through which users interact with the app and find compatible clubs.</p>
         <h3>Club Management Module</h3>
@@ -32,5 +35,9 @@
         <h3>Backend and Data Storage Module</h3>
         <p>The third module manages the underlying infrastructure for data persistence and communication between other modules. It stores user profiles, club details, and geolocation data securely within a database, ensuring that information is both accessible and protected. This module also implements APIs to facilitate the communication and interaction between the Club Management and User Interaction modules. Security measures such as data encryption, user authentication, and access controls are incorporated to protect user privacy and maintain the integrity of club data. This centralized module ensures that data is reliably stored and accessed by other parts of the system, creating a cohesive and secure application.</p>
 
+        <div id="control">
+            <a class="nav_button" href="requirements.html">Prev</a>
+            <a class="nav_button" href="modules.html">Next</a>
+        </div>
     </div>
 </body>

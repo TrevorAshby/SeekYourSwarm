@@ -9,14 +9,14 @@
     <div class="navbar">
         <div class="navbar_container">
             <a class="navbar_link title" href="index.html">CS5744 - Project 1</a>
-            <a class="navbar_link" href="background.html">Background</a>
+            <a class="navbar_link" href="index.html">Background</a>
             <a class="navbar_link" href="use_cases.html">Use Cases</a>
             <a class="navbar_link" href="requirements.html">Requirements</a>
             <a class="navbar_link" href="high_level_design.html">High-Level Design</a>
             <a class="navbar_link" href="modules.html">Modules</a>
             <a class="navbar_link active" href="design_rationale.html">Design Rationale</a>
             <a class="navbar_link" href="conclusion.html">Conclusion</a>
-            <a class="navbar_link" href="index.html">Full Text</a>
+            <a class="navbar_link" href="full_text.html">Full Text</a>
         </div>
     </div>
 
@@ -48,5 +48,9 @@
         <h3>Function 5: Database and Storage</h3>
         <p>All user and club data will be stored on an SQL database (FR-1, FR-2). When the User and Club Management modules call any change to the database, the functions will manually access the database and change or get the information necessary from the database. For this case, we decided to use Amazon RDS for PostgreSQL to efficiently set up and operate the databases and the interactions between the modules and the databases. Amazon RDS allows for easy set up and management and allows for precise fine-tuning of the database. PostgreSQL is also used since it is ACID compliant and is fast in complex queries and one of the most efficient RDBMS allowing. This makes creating, editing, and deleting user and club profiles in PostgreSQL very fast (FR-4,7,8,9,10,11,12 NFR-1,2,8). In addition, we also decided to use Amazon RDS Multi-AZ to create multiple copies of the database and make the database highly available (NFR 4, 6). All the messages made by users will be stored on Amazon S3 and will be organized using Amazon DynamoDB (FR-14).  We decided on Amazon S3 due to its incredible scalability, durability, and security (NFR-11). We also decided on Amazon DynamoDB due to its incredible speed and performance (NFR-11). The time it takes for the system to persist data to the database will take less than one second (NFR-8). Using Amazon services for every part of the configuration makes the setup very consistent and easy to access, and it also helps with the scalability of the database system as more and more users join the application. This scalability is especially important in the situation of having more users and clubs than expected, using Amazon S3 and Amazon RDS allows us to scale up easier. It saves us time and money from trying to allocate our own space, and instead making use of Amazon’s servers.  </p>
 
+        <div id="control">
+            <a class="nav_button" href="modules.html">Prev</a>
+            <a class="nav_button" href="conclusion.html">Next</a>
+        </div>
     </div>
 </body>
